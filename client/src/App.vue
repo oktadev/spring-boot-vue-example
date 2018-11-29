@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts">
-  import { Component, Inject, Provide, Vue } from 'vue-property-decorator';
+  import { Component, Vue } from 'vue-property-decorator';
 
 @Component
 export default class Home extends Vue {
@@ -27,8 +27,6 @@ export default class Home extends Vue {
   }
 
   private async login() {
-
-    console.log('this.auth', this.$auth);
     await this.$auth.loginRedirect();
   }
 

@@ -9,7 +9,7 @@ import axios from 'axios';
 @Component
 export default class GiphyImage extends Vue {
   @Prop() private name!: string;
-  private giphyUrl: string = '//media.giphy.com/media/YaOxRsmrv9IeA/giphy.gif';
+  private giphyUrl: string = '';
 
   private created() {
     const giphyApi = '//api.giphy.com/v1/gifs/search?api_key=dc6zaTOxFJmzC&limit=1&q=';
@@ -18,6 +18,8 @@ export default class GiphyImage extends Vue {
       const data = response.data.data;
       if (data.length) {
         this.giphyUrl = data[0].images.original.url;
+      } else {
+        this.giphyUrl = '//media.giphy.com/media/YaOxRsmrv9IeA/giphy.gif';
       }
     });
   }

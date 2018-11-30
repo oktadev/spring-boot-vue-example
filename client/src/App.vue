@@ -17,12 +17,6 @@
 <script lang="ts">
 import { Component, Vue, Watch } from 'vue-property-decorator';
 
-Component.registerHooks([
-  'beforeRouteEnter',
-  'beforeRouteLeave',
-  'beforeRouteUpdate',
-]);
-
 @Component
 export default class App extends Vue {
   public authenticated: boolean = false;

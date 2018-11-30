@@ -7,23 +7,23 @@
         </div>
         <button v-if="authenticated" v-on:click="logout">Logout</button>
         <button v-else v-on:click="login">Login</button>
-        <router-view v-if="authenticated"/>
+        <router-view/>
     </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue, Watch } from 'vue-property-decorator';
 
 @Component
 export default class Home extends Vue {
-  private authenticated: boolean = false;
+  public authenticated: boolean = false;
 
   private created() {
     this.isAuthenticated();
   }
 
   private async isAuthenticated() {
-    this.authenticated = (this.$auth) ? await this.$auth.isAuthenticated() : false;
+    this.authenticated = await this.$auth.isAuthenticated();
   }
 
   private async login() {

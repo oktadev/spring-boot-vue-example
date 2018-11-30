@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
-    <BeerList/>
+    <BeerList v-if="authenticated"/>
   </div>
 </template>
 
@@ -14,5 +14,15 @@ import BeerList from '@/components/BeerList.vue'; // @ is an alias to /src
     BeerList,
   },
 })
-export default class Home extends Vue {}
+export default class Home extends Vue {
+  private authenticated: boolean = false;
+
+  private created() {
+    this.isAuthenticated();
+  }
+
+  private async isAuthenticated() {
+    this.authenticated = (this.$auth) ? await this.$auth.isAuthenticated() : false;
+  }
+}
 </script>

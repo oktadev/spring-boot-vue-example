@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue, Watch } from 'vue-property-decorator';
 import axios from 'axios';
 import GiphyImage from '@/components/GiphyImage.vue';
 import { Prop } from 'vue/types/options';

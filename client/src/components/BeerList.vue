@@ -1,14 +1,14 @@
 <template>
-    <div>
-        <h1>Beer List</h1>
+  <div>
+    <h1>Beer List</h1>
 
-        <div class="wrapper">
-        <div v-for="beer in beers">
-            {{ beer.name }}<br/>
-            <GiphyImage :name="beer.name"/>
-        </div>
-        </div>
+    <div class="grid">
+      <div v-for="beer in beers">
+        {{ beer.name }}<br/>
+        <GiphyImage :name="beer.name"/>
+      </div>
     </div>
+  </div>
 </template>
 
 <script lang="ts">
@@ -29,16 +29,15 @@ export default class BeerList extends Vue {
   public beers: Beer[] = [];
 
   private async created() {
-    axios.get('/good-beers').then((response: any) => {
-      this.beers = response.data;
-    });
+    const response = await axios.get('/good-beers');
+    this.beers = await response.data;
   }
 }
 </script>
 
 <style scoped>
 /* https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Auto-placement_in_CSS_Grid_Layout */
-.wrapper {
+.grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 10px;

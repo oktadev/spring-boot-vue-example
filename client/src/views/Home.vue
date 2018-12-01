@@ -6,12 +6,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import BeerList from '@/components/BeerList.vue'; // @ is an alias to /src
 
-@Component({
-  components: {
-    BeerList,
-  },
-})
+@Component
 export default class Home extends Vue {}
 </script>

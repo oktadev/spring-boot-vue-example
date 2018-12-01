@@ -1,7 +1,6 @@
 <template>
-  <div>
+  <div class="beer-list">
     <h1>Beer List</h1>
-
     <div class="grid">
       <div v-for="beer in beers">
         {{ beer.name }}<br/>
@@ -29,18 +28,17 @@ export default class BeerList extends Vue {
   public beers: Beer[] = [];
 
   private async created() {
-    const response = await axios.get('/good-beers');
+    const response = await axios.get('http://localhost:8080/good-beers');
     this.beers = await response.data;
   }
 }
 </script>
 
 <style scoped>
-/* https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Auto-placement_in_CSS_Grid_Layout */
 .grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 10px;
-    grid-auto-rows: minmax(100px, auto);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
 }
 </style>

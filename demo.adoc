@@ -7,7 +7,7 @@
   http https://start.spring.io/starter.zip dependencies==h2,lombok,data-jpa,data-rest,web \
     packageName==com.okta.developer.demo -d
 
-. Add `Beer`, `BeerRepository`, `BeerCommandLineRunner` and add default beers [`boot-entity-lombok`, `beer-repo`, `beer-command`, `boot-add`]
+. Add `Beer`, `BeerRepository`, `BeerCommandLineRunner` and add default beers [`boot-entity-lombok`, `boot-repo`, `boot-command`, `boot-add`]
 
 . Start and see list of beers in console
 
@@ -16,8 +16,8 @@
 . Restart and confirm http://localhost:8080/good-beers works in browser and with http
 
   http POST :8080/beers name='Guinness'
-  http PUT :8080/beers/8 name='Guinness is good for you'
-  http DELETE :8080/beers/8
+  http PUT :8080/beers/1 name='Guinness is good for you'
+  http DELETE :8080/beers/1
 
 === Vue App
 
@@ -50,15 +50,15 @@
    }
   };
 
-. Configure CORS for Spring Boot and show list of beers
-
 . Create `src/components/BeerList.vue` and copy code from `Home.vue`; change `Home.vue` to use `<BeerList/>`
 
 . Create `GiphyImage.vue`; add to `BeerList`; show beers with images [`vue-giphy`]
 
+. Use CSS Grid to layout images in rows [`vue-grid`]
+
 === PWA Support
 
-. Run `npm run build`; serve with `serve -s build -p 3000`
+. Run `npm run build`; serve with `serve -s dist -p 8081`
 
 . Change URL to API in `BeerList.vue` and configure CORS for Spring Boot
 

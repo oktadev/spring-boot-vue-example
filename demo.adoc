@@ -1,0 +1,94 @@
+== Bootiful Vue Demo Steps
+
+=== Spring Boot API
+
+. start.spring.io: h2, lombok, jpa, rest, and web [`bootiful-start`]
+
+  http https://start.spring.io/starter.zip dependencies==h2,lombok,data-jpa,data-rest,web \
+    packageName==com.okta.developer.demo -d
+
+. Add `Beer`, `BeerRepository`, `BeerCommandLineRunner` and add default beers [`boot-entity-lombok`, `beer-repo`, `beer-command`, `boot-add`]
+
+. Start and see list of beers in console
+
+. Create `BeerController` with a `/good-beers` endpoint [`boot-controller`, `boot-good`]
+
+. Restart and confirm http://localhost:8080/good-beers works in browser and with http
+
+  http POST :8080/beers name='Guinness'
+  http PUT :8080/beers/8 name='Guinness is good for you'
+  http DELETE :8080/beers/8
+
+=== Vue App
+
+. Run `vue create client`; choose **TypeScript**, **PWA**, and **Router**; show app with `npm start`
+
+. Modify `Home.vue` and add a `created()` method to fetch good beers [`vue-created`]
+
+. Install axios: `npm i axios`
+
+. Create `Beer` interface and local `private beers: Beer[] = [];` variable
+
+. Add beer list to `Home.vue` [`vue-list`]
+
+  <h1>Beer List</h1>
+  <div v-for="beer in beers">
+    {{ beer.name }}
+  </div>
+
+. Create `client/vue.config.js` to proxy `/good-beers` requests [`vue-proxy`]
+
+  module.exports = {
+   devServer: {
+     port: 8081,
+     proxy: {
+       "/good-beers": {
+         target: "http://localhost:8080",
+         secure: false
+       }
+     }
+   }
+  };
+
+. Configure CORS for Spring Boot and show list of beers
+
+. Create `src/components/BeerList.vue` and copy code from `Home.vue`; change `Home.vue` to use `<BeerList/>`
+
+. Create `GiphyImage.vue`; add to `BeerList`; show beers with images [`vue-giphy`]
+
+=== PWA Support
+
+. Run `npm run build`; serve with `serve -s build -p 3000`
+
+. Change URL to API in `BeerList.vue` and configure CORS for Spring Boot
+
+. Restart, rebuild, and run Lighthouse
+
+. Mention Cloud Foundry and Heroku scripts
+
+=== Authentication with Okta
+
+. Add Okta Spring Boot Starter and oauth2-autoconfigure [`okta-maven-boot` and `spring-oauth2`]
+
+. Create OIDC app in Okta; add properties to `application.properties`, add `@EnableResourceServer` [`okta-oauth2`]
+
+. Show access denied from http://localhost:8080
+
+. Add Okta's Vue SDK [`okta-vue`]
+
+  npm i @okta/okta-vue
+  npm i -D @types/okta__okta-vue
+
+. Update `router.ts` to use `OktaVuePlugin` component [`vue-router`]
+
+. Remove `<BeerList/>` from `Home.vue` and add a link + auth awareness in `App.vue` [`vue-auth`]
+
+. Restart client, navigate to **Good Beers**, see title only
+
+. Fix CORS error after adding Spring Security [`cors-filter`]
+
+. Update `BeerList` to add an authorization header [`vue-token`]
+
+. Fini!
+
+Source: https://developer.okta.com/blog/2013/12/03/bootiful-development-with-spring-boot-and-vue

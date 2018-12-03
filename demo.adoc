@@ -50,6 +50,8 @@
    }
   };
 
+. Show beer list renders in browser
+
 . Create `src/components/BeerList.vue` and copy code from `Home.vue`; change `Home.vue` to use `<BeerList/>`
 
 . Create `GiphyImage.vue`; add to `BeerList`; show beers with images [`vue-giphy`]
@@ -91,4 +93,4 @@
 
 . Fini!
 
-Source: https://developer.okta.com/blog/2013/12/03/bootiful-development-with-spring-boot-and-vue
+Source: https://developer.okta.com/blog/2018/12/03/bootiful-spring-boot-java-vue-typescript

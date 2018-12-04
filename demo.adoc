@@ -1,5 +1,7 @@
 == Bootiful Vue Demo Steps
 
+The brackets at the end of each step indicate the alias's or IntelliJ Live Templates to use. You can find the template definitions at https://github.com/mraible/idea-live-templates[mraible/idea-live-templates].
+
 === Spring Boot API
 
 . start.spring.io: h2, lombok, jpa, rest, and web [`bootiful-start`]

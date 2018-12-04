@@ -68,6 +68,8 @@ The brackets at the end of each step indicate the alias's or IntelliJ Live Templ
 
 . Restart, rebuild, and run Lighthouse
 
+. Show how app works offline
+
 . Mention Cloud Foundry and Heroku scripts
 
 === Authentication with Okta

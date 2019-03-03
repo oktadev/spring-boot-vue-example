@@ -9,6 +9,8 @@ The brackets at the end of each step indicate the alias's or IntelliJ Live Templ
   http https://start.spring.io/starter.zip dependencies==h2,lombok,data-jpa,data-rest,web,okta \
     packageName==com.okta.developer.demo -d
 
+. Comment out Okta starter in `pom.xml`
+
 . Add `Beer`, `BeerRepository`, `BeerCommandLineRunner` and add default beers [`boot-entity-lombok`, `boot-repo`, `boot-command`, `boot-add`]
 
 . Start and see list of beers in console
@@ -91,17 +93,19 @@ The brackets at the end of each step indicate the alias's or IntelliJ Live Templ
       }
   }
 
-. Show access denied from http://localhost:8080
+. Show access denied from http://localhost:8080 (known issue: https://github.com/okta/okta-spring-boot/issues/119[#119])
 
 . Add Okta's Vue SDK and configure
 
   npm install -g @angular-devkit/schematics-cli
-  npm i @oktadev/schematics
+  npm i -D @oktadev/schematics
   schematics @oktadev/schematics:add-auth
 
-. Show `router.ts` and how it uses `OktaVuePlugin` component
+. Show `router.ts` and how it uses `OktaVuePlugin` component; show auth awareness in `App.vue`
 
-. Add `<BeerList/>` to `Home.vue` and show auth awareness in `App.vue`
+. Remove `<BeerList/>` from `Home.vue`; add `/beer-list` to routes in `router.ts` [`vue-route`]
+
+. Add a link to `BeerList` in `App.vue` [`vue-link`]
 
 . Restart client, navigate to **Good Beers**, see title only
 

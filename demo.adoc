@@ -27,9 +27,9 @@ The brackets at the end of each step indicate the alias's or IntelliJ Live Templ
 
 . Run `vue create client`; choose **TypeScript**, **PWA**, and **Router**; show app with `npm start`
 
-. Modify `Home.vue` and add a `created()` method to fetch good beers [`vue-created`]
-
 . Install axios: `npm i axios`
+
+. Modify `Home.vue` and add a `created()` method to fetch good beers [`vue-created`]
 
 . Create `Beer` interface and local `private beers: Beer[] = [];` variable
 

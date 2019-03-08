@@ -109,9 +109,9 @@ The brackets at the end of each step indicate the alias's or IntelliJ Live Templ
 
 . Restart client, navigate to **Good Beers**, see title only
 
-. Fix CORS error after adding Spring Security [`cors-filter`]
-
 . Update `BeerList` to add an authorization header [`vue-token`]
+
+. Fix CORS error after adding Spring Security [`cors-filter`]
 
 . Fini!
 

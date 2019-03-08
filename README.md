@@ -2,7 +2,7 @@
  
 This example app shows how to create a Spring Boot API and display its data with Vue.
 
-<!-- Please read [Bootiful Development with Spring Boot and Vue](https://developer.okta.com/blog/2017/12/06/bootiful-development-with-spring-boot-and-react) to see how this app was created. -->
+Please read [Bootiful Development with Spring Boot and Vue](https://developer.okta.com/blog/2018/12/03/bootiful-spring-boot-java-vue-typescript) to see how this app was created.
 
 **Prerequisites:** [Java 11](https://jdk.java.net/11/) and [Node.js](https://nodejs.org/).
 
@@ -51,20 +51,18 @@ Log in to your Okta Developer account (or [sign up](https://developer.okta.com/s
 
 #### Server Configuration
 
-Set the `issuer` and copy the `clientId` into `server/src/main/resources/application.yml`. 
+Set the `issuer` and copy the `clientId` into `server/src/main/resources/application.properties`. 
 
 **NOTE:** The value of `{yourOktaDomain}` should be something like `dev-123456.oktapreview.com`. Make sure you don't include `-admin` in the value!
 
-```yml
-okta:
-  oauth2:
-    client-id: {yourClientId}
-    issuer: https://{yourOktaDomain}/oauth2/default
+```properties
+okta.oauth2.issuer=https://{yourOktaDomain}/oauth2/default
+okta.oauth2.client-id={yourClientId}
 ```
 
 #### Client Configuration
 
-Set the `issuer` and copy the `clientId` into `client/src/App.tsx`.
+Set the `issuer` and copy the `clientId` into `client/src/router.ts`.
 
 ```typescript
 Vue.use(OktaVuePlugin, {
@@ -83,7 +81,7 @@ This example uses the following libraries provided by Okta:
 
 ## Help
 
-Please post any questions as comments as issues, or visit our [Okta Developer Forums](https://devforum.okta.com/). You can also email developers@okta.com if you would like to create a support ticket.
+Please post any questions as comments on [this repo's blog post](https://developer.okta.com/blog/2018/12/03/bootiful-spring-boot-java-vue-typescript), or visit our [Okta Developer Forums](https://devforum.okta.com/). You can also email developers@okta.com if you would like to create a support ticket.
 
 ## License
 
